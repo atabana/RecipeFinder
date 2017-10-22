@@ -1,5 +1,20 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
-<p><%= link_to "Googlle", "http://www.google.com" %></p>
+<h1>Searching for - <%=  @search_term %></h1>
+<table border="1">
+	<tr>
+		<th>Image URL</th>
+		<th>Title</th>
+		<th>Source</th>
+	</tr>
+	<% @recipes.each do |recipe| %>
+		<tr class=<%= cycle('even', 'odd') %>>
+			<td><%= image_tag(recipe["image_url"])%></td>
+			<td><%= recipe["title"]%></td>
+			<td><%= link_to "Click here for Recipe!", recipe["source_url"] %></td>
+		</tr>
+	<% end %>
+
+
+</table>
+<p><%= link_to "Google", "http://www.google.com" %></p>
 <p><%= link_to "Index", recipes_index_path %></p>
 
