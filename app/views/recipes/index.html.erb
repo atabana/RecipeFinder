@@ -3,13 +3,13 @@
 	<tr>
 		<th>Image URL</th>
 		<th>Title</th>
-		<th>Source</th>
+		<th>Ranking</th>
 	</tr>
 	<% @recipes.each do |recipe| %>
 		<tr class=<%= cycle('even', 'odd') %>>
-			<td><%= image_tag(recipe["image_url"])%></td>
-			<td><%= recipe["title"]%></td>
-			<td><%= link_to "Click here for Recipe!", recipe["source_url"] %></td>
+			<td><%= link_to image_tag(recipe["image_url"]), recipe["source_url"]%></td>
+			<td><%= link_to recipe["title"], recipe["source_url"]%></td>
+			<td><%= recipe["social_rank"] %></td>
 		</tr>
 	<% end %>
 
